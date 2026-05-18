@@ -59,17 +59,20 @@ def delete_contact(name):
  
 
 
-#add_contacts("Dominion", "8635674056")
-#add_contacts("Claude", "8078675043")
-#try:
-  #add_contacts("sekemi", "89099868")
-#except ValueError as e:
-    #print(f"Error: {e}")
+add_contacts("Dominion", "8635674056")
+add_contacts("Claude", "8078675043")
 
-#try :
-    #update_contact("sekemi", "111111111")
-#except ValueError as e:
-   # print(f"Error {e}")
+
+# using our raise valuerror message as e 
+try:
+  add_contacts("sekemi", "89099868")
+except ValueError as e:
+    print(f"Error: {e}")
+
+try :
+    update_contact("sekemi", "111111111")
+except ValueError as e:
+    print(f"Error {e}")
 
 
 try :

@@ -22,16 +22,16 @@ class Car:
 car1 = Car("Ford","Taurus", 2026)
 car2 = Car("Mercedez","c-class", 1999)
 car3 = Car("Mazda","cx90", 2019)
-#print(car1.make, car1.model, car1.year)
-#print(car2.make, car2.model,car2.year)
-#print(car3.make,car3.model, car3.year)
+print(car1.make, car1.model, car1.year)
+print(car2.make, car2.model,car2.year)
+print(car3.make,car3.model, car3.year)
 
-#car1.describe()
-#car2.describe()
-#car3.describe()
-#print(car2.is_vintage())
-#print(car1.is_vintage())
-#print(car3.is_vintage())
+car1.describe()
+car2.describe()
+car3.describe()
+print(car2.is_vintage())
+print(car1.is_vintage())
+print(car3.is_vintage())
 
 # Inheritance 
 
@@ -44,10 +44,11 @@ class Truck (Car):
         print(f'This truck can carry {self.payload_tons} tons')
 
 my_truck = Truck("Dodge", "Ram", 2024, 5 )
-#my_truck.describe()
-#my_truck.haul_info()
+my_truck.describe()
+my_truck.haul_info()
 
    
+# Banking app that can deposit and withdraw and also update accout balance 
 class Bankaccount:
     def __init__ (self, owner, balance ):
         self.owner = owner 
