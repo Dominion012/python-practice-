@@ -1,0 +1,20 @@
+[
+   {
+      "title": "The Alchemist",
+      "author": "Paulo Coelho",
+      "pages": 208,
+      "is_read": false
+   },
+   {
+      "title": "Atomic Habits",
+      "author": "James Clear",
+      "pages": 320,
+      "is_read": true
+   },
+   {
+      "title": "Python Crash Course",
+      "author": "Eric Matthes",
+      "pages": 544,
+      "is_read": false
+   }
+]
