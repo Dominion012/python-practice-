@@ -1,0 +1,11 @@
+Acme Corp Expense Reimbursement Policy
+
+Expense reports must be submitted within 30 days of the purchase date through the finance portal. Reports submitted after 30 days will not be reimbursed except in extraordinary circumstances approved by a department head. All expenses must include an itemized receipt; credit card statements alone are not sufficient documentation.
+
+Expense reports over $500 require manager approval before reimbursement is processed. Reports over $2,000 additionally require finance department review, which can add up to 5 business days to processing time.
+
+Acme Corp Travel Policy
+
+Business travel must be booked through the company's approved travel portal to qualify for reimbursement. Flights should be booked in economy class for trips under 6 hours; business class is permitted for longer international flights with manager pre-approval. Hotel bookings are capped at $250 per night in most cities, with higher caps for major metro areas like New York and San Francisco.
+
+Meals during business travel are reimbursed up to $75 per day without requiring itemized receipts, though itemized receipts are recommended for amounts close to the cap.

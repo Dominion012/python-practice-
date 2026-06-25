@@ -1,0 +1,11 @@
+Acme Corp Vacation Policy
+
+Employees are entitled to 15 days of paid vacation per year, accruing monthly at a rate of 1.25 days per month. Unused vacation days roll over into the next calendar year, up to a maximum of 5 days. Any unused days beyond that cap are forfeited on December 31st.
+
+Vacation requests must be submitted through the HR portal at least two weeks in advance for approval. Manager approval is required for any request longer than 5 consecutive days. During the December holiday period, all vacation requests are subject to a first-come, first-served blackout policy due to reduced staffing.
+
+Acme Corp Remote Work Policy
+
+Remote work is permitted up to 3 days per week, subject to manager approval. Employees must be available during core hours of 10am to 4pm regardless of work location. Fully remote arrangements, where an employee works from home five days a week, require VP-level sign-off and are evaluated on a case-by-case basis depending on role and team needs.
+
+Employees working remotely are expected to maintain the same communication responsiveness as in-office staff, including same-day responses on Slack and attendance at all scheduled meetings via video call.

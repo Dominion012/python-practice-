@@ -1,2 +1,4 @@
 mnist_data/
 .env
+vector_store_embeddings.npy
+vector_store_metadata.json

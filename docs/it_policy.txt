@@ -1,0 +1,11 @@
+Acme Corp IT Access Policy
+
+The guest WiFi password is reset every 90 days. The current password can always be found on the IT portal under Network Settings, or by scanning the QR code posted in the main lobby. Employees should use the secure "Acme-Staff" network rather than the guest network for daily work, as it offers better speed and security.
+
+New hires receive a laptop, monitor, and standard software license within their first week of employment. IT setup requests go through the onboarding portal and are typically fulfilled within 2 business days. Replacement equipment for existing employees can be requested through the same portal, subject to manager approval for non-standard hardware.
+
+Acme Corp Office Access Policy
+
+The office is open Monday through Friday, 8am to 6pm. Badge access is required to enter the building outside of core hours of 9am to 5pm. Lost badges should be reported to building security immediately, and a replacement can be issued same-day from the front desk with photo ID.
+
+Visitors must be registered in advance through the front desk system and escorted by their host at all times while in the building.
