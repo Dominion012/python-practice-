@@ -1,0 +1,3 @@
+Acme Corp Security Policy
+
+All employees must enable two-factor authentication on their company accounts within their first week. Passwords must be at least 12 characters and rotated every 180 days.
