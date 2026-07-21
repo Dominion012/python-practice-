@@ -125,6 +125,8 @@ class ConversationalAgent:
 
     def chat(self, user_message, max_turns=10):
         self.messages.append({"role": "user", "content": user_message})
+        if len(self.messages) > 20:
+            self.messages = self.messages[4:]
 
         for _ in range(max_turns):
             response = client.messages.create(
@@ -178,8 +180,12 @@ class ConversationalAgent:
     def load(self, filepath="conversation.json"):
         # os.path.exists guard prevents a crash on the very first run when no save file exists yet
         if os.path.exists(filepath):
-            with open(filepath) as f:
-                self.messages = json.load(f)
+            try:
+                with open(filepath) as f:
+                    self.messages = json.load(f)
+            except json.JSONDecodeError:
+                print("Warning: save file was corrupted. Starting fresh.")
+                self.messages = []
 
 
 # while True REPL: keeps asking for input until "quit"; "save" persists history to disk

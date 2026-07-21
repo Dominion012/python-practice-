@@ -122,6 +122,7 @@ TOOL_MAP = {
 def run_agent(user_message, max_turns=10):
     # seed the conversation with the user's question; max_turns prevents infinite loops
     messages = [{"role": "user", "content": user_message}]
+    call_count = 0 
 
     for _ in range(max_turns):
         # pass tools= so Claude knows what it can call this turn
@@ -131,12 +132,14 @@ def run_agent(user_message, max_turns=10):
             tools=tools,
             messages=messages
         )
+        call_count += 1
         # append the full content block (not just text) so Claude sees its own tool requests in history
         messages.append({"role": "assistant", "content": response.content })
         # end_turn means Claude is done — find the text block and return it
         if response.stop_reason == "end_turn":
             for block in response.content:
                 if hasattr(block, "text"):
+                    print(f"[{call_count} API calls used]")
                     return block.text
         # tool_use means Claude wants to call one or more tools before answering
         if response.stop_reason == "tool_use":
@@ -150,10 +153,13 @@ def run_agent(user_message, max_turns=10):
                tool_results.append({
                 "type": "tool_result",
                 "tool_use_id": block.id,
-                "content": str(result)
+                "content": str(result),
+                
             })
            # tool results go back as a "user" message — the API requires this role
            messages.append({"role": "user", "content": tool_results})
+
+    return "Error: agent did not complete within the turn limit"
 
 
 # four test queries covering: date lookup, arithmetic, single-tool retrieval, multi-tool chaining
