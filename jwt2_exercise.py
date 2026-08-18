@@ -20,7 +20,7 @@ def create_token(username:str):
         "exp" : datetime.datetime.utcnow() + datetime.timedelta(1)
     }
 
-    return jwt.encode(payload, SECRET_KEY, algorithm=["HS256"])
+    return jwt.encode(payload, SECRET_KEY, algorithm="HS256")
 
 @app.post("/login")
 def posty(request:Ent):
