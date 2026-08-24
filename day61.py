@@ -13,8 +13,9 @@ import uvicorn
 import os
 
 app = FastAPI()
-username = os.environ.get("USER", "postgres")
-engine = create_engine(f"postgresql://{username}@localhost/mydb")
+db_user = os.environ.get("DB_USER", os.environ.get("USER", "postgres"))
+db_host = os.environ.get("DB_HOST", "localhost")
+engine = create_engine(f"postgresql://{db_user}@{db_host}/mydb")
 SECRET_KEY = "supersecretkey_atleast32charslong!!"
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/login")
