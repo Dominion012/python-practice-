@@ -15,7 +15,10 @@ import os
 app = FastAPI()
 db_user = os.environ.get("DB_USER", os.environ.get("USER", "postgres"))
 db_host = os.environ.get("DB_HOST", "localhost")
-engine = create_engine(f"postgresql://{db_user}@{db_host}/mydb")
+db_password = os.environ.get("DB_PASSWORD", "")
+db_name = os.environ.get("DB_NAME", "mydb")
+db_url = f"postgresql://{db_user}:{db_password}@{db_host}/{db_name}" if db_password else f"postgresql://{db_user}@{db_host}/{db_name}"
+engine = create_engine(db_url)
 SECRET_KEY = "supersecretkey_atleast32charslong!!"
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/login")

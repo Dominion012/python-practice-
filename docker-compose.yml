@@ -1,0 +1,28 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: domi
+      POSTGRES_PASSWORD: password123
+      POSTGRES_DB: aidb
+    ports:
+      - "5433:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U domi -d aidb"]
+      interval: 5s
+      retries: 5
+
+  app:
+    build: .
+    ports:
+      - "8018:8018"
+    env_file:
+      - .env
+    environment:
+      DB_HOST: db
+      DB_USER: domi
+      DB_PASSWORD: password123
+      DB_NAME: aidb
+    depends_on:
+      db:
+        condition: service_healthy
