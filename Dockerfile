@@ -2,11 +2,11 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-COPY requirements.txt .
-RUN pip install -r requirements.txt
+COPY requirements-render.txt .
+RUN pip install -r requirements-render.txt
 
-COPY . .
+COPY day69.py .
 
-EXPOSE 8018
+EXPOSE 8027
 
-CMD ["uvicorn", "day61:app", "--host", "0.0.0.0", "--port", "8018"]
+CMD ["uvicorn", "day69:app", "--host", "0.0.0.0", "--port", "8027"]
