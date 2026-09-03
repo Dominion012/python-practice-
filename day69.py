@@ -2,8 +2,6 @@
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from sqlalchemy import create_engine, Column, Integer, String
-from sqlalchemy.orm import DeclarativeBase, Session
 from pydantic import BaseModel
 import uvicorn
 import os
@@ -17,18 +15,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-engine = create_engine("sqlite:///notes.db")
-
-class Base(DeclarativeBase):
-    pass
-
-class Note(Base):
-    __tablename__ = "notes"
-    id = Column(Integer, primary_key=True)
-    title = Column(String)
-    content = Column(String)
-
-Base.metadata.create_all(engine)
+notes = {}
+counter = 1
 
 class NoteRequest(BaseModel):
     title: str
@@ -40,27 +28,22 @@ def root():
 
 @app.post("/notes")
 def create_note(request: NoteRequest):
-    with Session(engine) as session:
-        note = Note(title=request.title, content=request.content)
-        session.add(note)
-        session.commit()
-        return {"id": note.id, "title": note.title, "content": note.content}
+    global counter
+    notes[counter] = {"id": counter, "title": request.title, "content": request.content}
+    note = notes[counter]
+    counter += 1
+    return note
 
 @app.get("/notes")
 def get_notes():
-    with Session(engine) as session:
-        notes = session.query(Note).all()
-        return [{"id": n.id, "title": n.title, "content": n.content} for n in notes]
+    return list(notes.values())
 
 @app.delete("/notes/{note_id}")
 def delete_note(note_id: int):
-    with Session(engine) as session:
-        note = session.query(Note).filter(Note.id == note_id).first()
-        if not note:
-            raise HTTPException(status_code=404, detail="Note not found")
-        session.delete(note)
-        session.commit()
-        return {"message": f"Note {note_id} deleted"}
+    if note_id not in notes:
+        raise HTTPException(status_code=404, detail="Note not found")
+    del notes[note_id]
+    return {"message": f"Note {note_id} deleted"}
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8027))
