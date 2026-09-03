@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: domi-notes-api
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn day69:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
